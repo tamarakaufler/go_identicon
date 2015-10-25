@@ -58,17 +58,17 @@ func (icon *identicon) Create() string {
     v := binary.LittleEndian.Uint32(icon.hash[:])       // casts [32]uint8 to uint32
 
     // 
-    rgba := color.RGBA{
+    nrgba := color.NRGBA{
 		R: uint8(v),            // casts uint32 to uint8, reducing 0-4294967296 to 0-255 
 		G: uint8(v >> 7),       // v/2^7   => cast to uint8
 		B: uint8(v >> 14),      // v/2^14  => cast to uint8
 		A: 0xff,
 	}
 
-    fmt.Println(rgba)
+    fmt.Println(nrgba)
 
     // create a new image with dimensions icon.dims x icon.dims
-    idimage := image.NewRGBA(image.Rectangle{image.Point{0,0},image.Point{icon.dims,icon.dims}})
+    idimage := image.NewNRGBA(image.Rectangle{image.Point{0,0},image.Point{icon.dims,icon.dims}})
 
     // set each pixel value, based on:
     //          a) function x*y (determines the image pattern)
@@ -80,7 +80,7 @@ func (icon *identicon) Create() string {
     for x := 0; x < icon.columns; x++ {                 // x axis
         for y := 0; y < (icon.rows); y++ {              // y axis
             coef := uint8(x*y/icon.columns*icon.rows)   // function governing the image pattern
-            c := color.RGBA{rgba.R*coef, rgba.G*coef, rgba.B*coef, rgba.A}
+            c := color.NRGBA{nrgba.R*coef, nrgba.G*coef, nrgba.B*coef, nrgba.A}
             idimage.Set(x,y,c)
         }
     }
