@@ -38,7 +38,7 @@ func main() {
     //  Using 3rd party routing module because net/http allows setting up only static routes
     //  We want to provide the string as part of the url
     router := httprouter.New()
-    router.GET("/identicon/icon/:email", handler)
+    router.GET("/identicon/:email", handler)
 
     // HTTP server
     log.Fatal(http.ListenAndServe(":3333", router))
