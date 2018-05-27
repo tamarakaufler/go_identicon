@@ -1,5 +1,10 @@
-Go project
+## Create a unique identicon for a string - Go implementation
 
-Create a unique identicon for a string
-Use the implementation to show the identicon on a web page. The string is provided as part
-of the URL: /identicon/:string
+# Usage
+Use a URL in a browser to how the identicon on the web page. The string is provided as part
+of the URL:
+
+http://identicon/:string
+
+Submitting the URL will display an identicon unique to that string.
+The string could be an email and the identicon the particular user's default profile image.
