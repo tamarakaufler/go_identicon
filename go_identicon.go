@@ -71,8 +71,8 @@ func (icon *identicon) Create() string {
     idimage := image.NewNRGBA(image.Rectangle{image.Point{0,0},image.Point{icon.dims,icon.dims}})
 
     // set each pixel value, based on:
-    //          a) function x*y (determines the image pattern)
-    //          b) on the email (using sha256 hash algorithm and the corresponding checksum)
+    //          a) function x*y
+    //          b) on the string (using sha256 hash algorithm and the corresponding checksum)
     //          c) RGBA colour setup
     //
     //          a) determines the image pattern
