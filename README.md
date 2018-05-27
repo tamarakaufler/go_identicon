@@ -1,6 +1,6 @@
-## Create a unique identicon for a string - Go implementation
+# Create a unique identicon for a string - Go implementation
 
-# Usage
+## Usage
 Use a URL in a browser to how the identicon on the web page. The string is provided as part
 of the URL:
 
